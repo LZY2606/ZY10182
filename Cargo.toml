@@ -1,0 +1,23 @@
+[package]
+name = "voltammetry-peak-bench"
+version = "0.1.0"
+edition = "2021"
+description = "伏安峰议台 - cyclic voltammetry peak deliberation bench"
+
+[lib]
+name = "vpb"
+path = "src/lib.rs"
+
+[[bin]]
+name = "vpb-server"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.8"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
